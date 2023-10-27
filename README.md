@@ -1,6 +1,46 @@
 # Git 使用教程
 
 # Table of Content
+- [Git 使用教程](#git-使用教程)
+- [Table of Content](#table-of-content)
+- [0. Related Resources](#0-related-resources)
+- [1. Git 下载安装](#1-git-下载安装)
+- [2. Git 创建仓库](#2-git-创建仓库)
+  - [2.1 git init（optional）](#21-git-initoptional)
+    - [2.1.1 使用当前目录创建仓库](#211-使用当前目录创建仓库)
+    - [2.1.2 使用指定目录创建仓库](#212-使用指定目录创建仓库)
+    - [2.1.3 向仓库添加文件](#213-向仓库添加文件)
+  - [2.2 git clone](#22-git-clone)
+  - [2.3 git config](#23-git-config)
+- [3. Git 基本操作](#3-git-基本操作)
+  - [3.1 一般流程](#31-一般流程)
+  - [3.2 git add](#32-git-add)
+  - [3.3 git commit](#33-git-commit)
+  - [3.4 git push](#34-git-push)
+  - [3.5 git checkout](#35-git-checkout)
+  - [3.6 git pull](#36-git-pull)
+  - [3.7 optional commands](#37-optional-commands)
+    - [3.7.1 git status](#371-git-status)
+    - [3.7.2 git diff](#372-git-diff)
+    - [3.7.3 git rm](#373-git-rm)
+    - [3.7.4 git mv](#374-git-mv)
+    - [3.7.5 恢复到刚clone 的状态](#375-恢复到刚clone-的状态)
+- [4. Git 分支管理（optional）](#4-git-分支管理optional)
+  - [4.1 Simple workflow](#41-simple-workflow)
+  - [4.2 分支管理](#42-分支管理)
+    - [4.2.1 列出分支](#421-列出分支)
+    - [4.2.2 删除分支](#422-删除分支)
+    - [4.2.3 分支合并](#423-分支合并)
+    - [4.2.4 合并冲突](#424-合并冲突)
+- [5. Git 提交历史（optional）](#5-git-提交历史optional)
+  - [5.1 git log](#51-git-log)
+  - [5.2 ****git blame****](#52-git-blame)
+- [6. 远程仓库](#6-远程仓库)
+  - [6.1 本地创建 ssh key](#61-本地创建-ssh-key)
+  - [6.2 配置GitHub/GitLab](#62-配置githubgitlab)
+    - [6.2.1 GitHub](#621-github)
+    - [6.2.2 GitLab](#622-gitlab)
+
 
 # 0. Related Resources
 
@@ -9,10 +49,7 @@
 - [Git tutorial](https://www.runoob.com/git/git-tutorial.html)
 - [GitLab使用教程](https://www.cnblogs.com/vs1435/p/11775861.html)
 
-<aside>
-💡 本文主要根据 [Git tutorial](https://www.runoob.com/git/git-tutorial.html) 撰写，旨在帮助新同学快速上手Git。
-
-</aside>
+本文主要根据 [Git tutorial](https://www.runoob.com/git/git-tutorial.html) 撰写，旨在帮助快速上手Git。
 
 # 1. Git 下载安装
 
