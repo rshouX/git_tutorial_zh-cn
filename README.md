@@ -123,7 +123,7 @@ git config --global user.email rshoux@gmail.com
 
 # 3. Git 基本操作
 
-![Untitled](Git%20%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%209a908db214c34364a203e2889cfbbb38/Untitled.png)
+![workflow](figures/workflow.png)
 
 - Git 的工作就是创建和保存你项目的快照及与之后的快照进行对比。
 - Git 常用的是以下 6 个命令：**git clone、git add 、git commit、git push、git checkout、git pull**，[git clone](https://www.notion.so/Git-9a908db214c34364a203e2889cfbbb38?pvs=21) 已经在 [Git 创建仓库](https://www.notion.so/Git-9a908db214c34364a203e2889cfbbb38?pvs=21)中介绍过，因而不再赘述，其余命令后面会详细介绍。
@@ -285,7 +285,7 @@ git clean -f –d
 
 使用分支意味着你可以从开发主线上分离开来，然后在不影响主线的同时继续工作。
 
-![Untitled](Git%20%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%209a908db214c34364a203e2889cfbbb38/Untitled%201.png)
+![branch](figures/branch.png)
 
 ## 4.1 Simple workflow
 
@@ -415,9 +415,9 @@ ssh-keygen -t rsa -C "rshoux@gmail.com"
 
 登录GitHub后依次点击：头像-Settings
 
-![Untitled](Git%20%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%209a908db214c34364a203e2889cfbbb38/Untitled%202.png)
+![github-1](figures/GitHub-1.png)
 
-![Untitled](Git%20%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%209a908db214c34364a203e2889cfbbb38/Untitled%203.png)
+![github-2](figures/GitHub-2.png)
 
 为了验证是否成功，在git bash下输入：
 
@@ -471,8 +471,8 @@ git push <remote_repo_name> <branch_name>
 
 登录GitLab，如下图操作。
 
-![Untitled](Git%20%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%209a908db214c34364a203e2889cfbbb38/Untitled%204.png)
+![gitlab-1](figures/GitLab-1.png)
 
-![Untitled](Git%20%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%209a908db214c34364a203e2889cfbbb38/Untitled%205.png)
+![gitlab-2](figures/GitLab-2.png)
 
-![Untitled](Git%20%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%209a908db214c34364a203e2889cfbbb38/Untitled%206.png)
+![gitlab-3](figures/GitLab-3.png)
