@@ -197,6 +197,20 @@ git push <远程主机名> --delete <远程分支名>
 
 ```
 
+在创建完GitHub Repo第一次提交时，应使用`-u`参数，`-u`: 也可以写作 `--set-upstream`，用于在推送代码的同时，将本地分支与远程分支进行关联，使得以后的推送和拉取操作更加方便。
+
+```bash
+# 由于现在GitHub新创建的repo分支名默认为main
+# 为了统一分支命名，所以把分支重命名为main，更加规范
+git branch -M main
+
+# 首次提交使用，之后直接使用git push即可
+git push -u origin main
+```
+
+**注意**：
+只有在第一次commit后才会创建分支，才能使用`git branch -M`命令。
+
 ## 3.5 git checkout
 
 - 用途：**git checkout** 命令用于在不同的分支之间切换、恢复文件、创建新分支等操作。
