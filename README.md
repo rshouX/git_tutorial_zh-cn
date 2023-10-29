@@ -126,7 +126,7 @@ git config --global user.email rshoux@gmail.com
 ![workflow](figures/workflow.png)
 
 - Git 的工作就是创建和保存你项目的快照及与之后的快照进行对比。
-- Git 常用的是以下 6 个命令：**git clone、git add 、git commit、git push、git checkout、git pull**，[git clone](https://www.notion.so/Git-9a908db214c34364a203e2889cfbbb38?pvs=21) 已经在 [Git 创建仓库](https://www.notion.so/Git-9a908db214c34364a203e2889cfbbb38?pvs=21)中介绍过，因而不再赘述，其余命令后面会详细介绍。
+- Git 常用的是以下 6 个命令：**git clone、git add 、git commit、git push、git checkout、git pull**，[git clone](#22-git-clone) 已经在 [Git 创建仓库](#2-Git-创建仓库)中介绍过，因而不再赘述，其余命令后面会详细介绍。
 - 3.1-3.6 部分需要看一下，3.7部分可跳过
 
 ## 3.1 一般流程
