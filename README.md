@@ -214,7 +214,7 @@ git push -u origin main
 ## 3.5 git checkout
 
 - 用途：**git checkout** 命令用于在不同的分支之间切换、恢复文件、创建新分支等操作。
-- 更多分支管理内容参考 [Git 分支管理](https://www.notion.so/Git-9a908db214c34364a203e2889cfbbb38?pvs=21) 部分。
+- 更多分支管理内容参考 [Git 分支管理](#4-git-分支管理optional) 部分。
 - 命令格式如下：
 
 ```bash
