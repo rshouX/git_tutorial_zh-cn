@@ -40,6 +40,7 @@
   - [6.2 配置GitHub/GitLab](#62-配置githubgitlab)
     - [6.2.1 GitHub](#621-github)
     - [6.2.2 GitLab](#622-gitlab)
+  - [6.2.3 回退之前的版本](#623-回退之前的版本)
 
 
 # 0. Related Resources
@@ -481,6 +482,7 @@ git push <remote_repo_name> <branch_name>
 
 </aside>
 
+
 ### 6.2.2 GitLab
 
 登录GitLab，如下图操作。
@@ -490,3 +492,20 @@ git push <remote_repo_name> <branch_name>
 ![gitlab-2](figures/GitLab-2.png)
 
 ![gitlab-3](figures/GitLab-3.png)
+
+## 6.2.3 回退之前的版本
+
+- 先通过`git log`查看之前的版本，找到需要回退的目标版本号
+
+![log](figures/log.png)
+
+- 使用如下代码回退，并重新push之前的版本。
+
+```bash
+git reset --hard 目标版本号
+git push -f
+```
+
+此时如果用`git push`会报错，因为我们本地库版本比远程库的要旧，所以我们要用`git push -f`强制推送上去。
+
+- [6.2.3节](#623-回退之前的版本) 参考CSDN文章：[Git恢复之前版本的两种方法reset、revert（图文详解）](https://blog.csdn.net/yxlshk/article/details/79944535)
