@@ -137,13 +137,13 @@ git config --global user.email rshoux@gmail.com
 cd /path/to/repo
 git clone <repo>
 
-# add 将修改过的文件提交到缓存区staging area
+# add 将修改过的文件提交到缓存区（staging area）
 git add file_you_modified
 
-# commit 将缓存区的内容提交到本地repo
+# commit 将缓存区的内容提交到本地仓库（local repo）
 git commit -m "message"
 
-# push 上传远程代码并合并
+# push 上传代码并合并至远程仓库（remote repo）
 git push
 ```
 
@@ -447,18 +447,17 @@ ssh -T git@github.com
 
 - 若本地的repo是从GitHub直接clone下来的，则修改完本地repo后直接使用`git push`即可将更改提交到远程GitHub仓库。
 - 若从GitHub新建一个远程仓库使用本地管理，则需要先配置远程repo，之后再进行git push。
-    
+  
     ```bash
     git remote add origin git@github.com:yourName/yourRepo.git
     ```
     
     `yourName`和`yourRepo`表示你在GitHub的用户名和仓库，加完之后进入.git，打开config，这里会多出一个remote "origin"内容，这就是刚才添加的远程地址，也可以直接修改config来配置远程地址。
-    
 
 如果在使用命令`git remote add`时报错：`fatal: remote origin already exists.`
 
 - 这说明本地库已经关联了一个名叫`origin`的远程库，此时，可以先用`git remote -v`查看远程库信息，之后
-    
+  
     ```bash
     # 我们可以删除已有的GitHub远程库：
     git remote rm origin
@@ -479,8 +478,6 @@ git push gitee  master
 
 git push <remote_repo_name> <branch_name>
 ```
-
-</aside>
 
 
 ### 6.2.2 GitLab
@@ -509,3 +506,4 @@ git push -f
 此时如果用`git push`会报错，因为我们本地库版本比远程库的要旧，所以我们要用`git push -f`强制推送上去。
 
 - [6.2.3节](#623-回退之前的版本) 参考CSDN文章：[Git恢复之前版本的两种方法reset、revert（图文详解）](https://blog.csdn.net/yxlshk/article/details/79944535)
+
