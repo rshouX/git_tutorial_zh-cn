@@ -1,5 +1,8 @@
 # Git 使用教程
 
+![Project Status](https://img.shields.io/badge/Status-Ongoing-blue)
+![GitHub last commit (by committer)](https://img.shields.io/github/last-commit/rshouX/git_tutorial_zh-cn)
+
 # Table of Content
 - [Git 使用教程](#git-使用教程)
 - [Table of Content](#table-of-content)
@@ -48,7 +51,7 @@
     - [6.4.2 基本概念](#642-基本概念)
     - [6.4.3 具体实践](#643-具体实践)
     - [6.4.4 同步复刻的main分支](#644-同步复刻的main分支)
-- [7. `.gitigore`](#7-gitigore)
+- [7. .gitigore](#7-gitigore)
 
 
 # 0. Related Resources
@@ -541,11 +544,11 @@ git push -f
 
 ### 6.4.3 具体实践
 
-- **复刻仓库：**点击页面顶部的“fork”按钮即可复刻仓库，这将在你的账户中创建此仓库的完整实例。
+- **复刻仓库：** 点击页面顶部的“fork”按钮即可复刻仓库，这将在你的账户中创建此仓库的完整实例。
 
 ![复刻仓库](./figures/fork.png)
 
-- **克隆仓库：**账户中已经包含了这个仓库，将它克隆到本地来进行编辑。
+- **克隆仓库：** 账户中已经包含了这个仓库，将它克隆到本地来进行编辑。
 
 ```bash
 # 把仓库克隆到本地
@@ -554,7 +557,7 @@ git clone [HTTP ADDRESS]
 cd [NAME OF REPO]
 ```
 
-- **进行更改并提交：**对项目进行必要的更改并保存。
+- **进行更改并提交：** 对项目进行必要的更改并保存。
 
 ```bash
 git status                          # 查看变更
@@ -569,7 +572,7 @@ git remote                          # 确认远程库的名称
 git push origin [Branch Name]       # 变更推送到GitHub
 ```
 
-- **创建拉取请求：**在GitHub仓库中可以看到一个“Compare & pull request”按钮，点击它。请提供必要的说明来介绍你所做的变更（可以使用“#”来引用议题）。提交拉取请求。
+- **创建拉取请求：** 在GitHub仓库中可以看到一个“Compare & pull request”按钮，点击它。请提供必要的说明来介绍你所做的变更（可以使用“#”来引用议题）。提交拉取请求。
 
 ![pr1](./figures/pr1.png)
 ![pr2](./figures/pr2.png)
@@ -593,6 +596,7 @@ git branch -d [Branch Name]         # 删除无用的分支
 git push origin --delete [Branch Name]
 ```
 
-# 7. `.gitigore`
+# 7. .gitigore
 
 🌟 [第7章](#7-gitigore)参考博客：[详解gitignore的使用方法，让你尽情使用git add](https://www.cnblogs.com/techflow/p/13801136.html)
+
