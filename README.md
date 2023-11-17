@@ -34,13 +34,21 @@
     - [4.2.4 合并冲突](#424-合并冲突)
 - [5. Git 提交历史（optional）](#5-git-提交历史optional)
   - [5.1 git log](#51-git-log)
-  - [5.2 ****git blame****](#52-git-blame)
+  - [5.2 git blame](#52-git-blame)
 - [6. 远程仓库](#6-远程仓库)
   - [6.1 本地创建 ssh key](#61-本地创建-ssh-key)
   - [6.2 配置GitHub/GitLab](#62-配置githubgitlab)
     - [6.2.1 GitHub](#621-github)
     - [6.2.2 GitLab](#622-gitlab)
-  - [6.2.3 回退之前的版本](#623-回退之前的版本)
+  - [6.3 版本回退](#63-版本回退)
+    - [6.3.1 Reference](#631-reference)
+    - [6.3.2 具体实践](#632-具体实践)
+  - [6.4 Pull Request(PR)](#64-pull-requestpr)
+    - [6.4.1 Reference](#641-reference)
+    - [6.4.2 基本概念](#642-基本概念)
+    - [6.4.3 具体实践](#643-具体实践)
+    - [6.4.4 同步复刻的main分支](#644-同步复刻的main分支)
+- [7. `.gitigore`](#7-gitigore)
 
 
 # 0. Related Resources
@@ -51,6 +59,7 @@
 - [GitLab使用教程](https://www.cnblogs.com/vs1435/p/11775861.html)
 
 本文主要根据 [Git tutorial](https://www.runoob.com/git/git-tutorial.html) 撰写，旨在帮助快速上手Git。
+有些章节内容参考自博客，分别在章节开头声明了资料来源。
 
 # 1. Git 下载安装
 
@@ -58,10 +67,7 @@
 
 # 2. Git 创建仓库
 
-<aside>
-⭐ 2.1部分可跳过，可以直接去看2.2部分
-
-</aside>
+⭐ [2.1](#21-git-initoptional)部分可跳过，可以直接去看[2.2](#22-git-clone)部分
 
 ## 2.1 git init（optional）
 
@@ -296,11 +302,14 @@ git clean -f –d
 
 # 4. Git 分支管理（optional）
 
-几乎每一种版本控制系统都以某种形式支持分支，一个分支代表一条独立的开发线。
+不管是对于小项目还是团队协作的项目，使用仓库时，最好新建一个分支。
+分支名称应该保持简短，并且能够反映我们所做的工作。
 
+几乎每一种版本控制系统都以某种形式支持分支，一个分支代表一条独立的开发线。
 使用分支意味着你可以从开发主线上分离开来，然后在不影响主线的同时继续工作。
 
 ![branch](figures/branch.png)
+
 
 ## 4.1 Simple workflow
 
@@ -385,7 +394,7 @@ git log [选项] [分支名/提交哈希]
 - `-abbrev-commit`：使用短提交哈希值。
 - `-pretty=<格式>`：使用自定义的提交信息显示格式。
 
-## 5.2 ****git blame****
+## 5.2 git blame
 
 **git blame** 命令用于逐行显示指定文件的每一行代码是由谁在什么时候引入或修改的。
 
@@ -412,8 +421,8 @@ git blame [选项] <文件路径>
 - 设置全局变量
 
 ```bash
-git config --global user.name "runshenghou"
-git config --global user.email rshoux@gmail.com
+git config --global user.name "YourName"
+git config --global user.email email_address@server.com
 ```
 
 - 生成ssh key 命令
@@ -422,7 +431,7 @@ git config --global user.email rshoux@gmail.com
 ssh-keygen -t rsa -C "rshoux@gmail.com"
 ```
 
-后面的邮箱改为你在github上注册的邮箱，之后会要求确认路径和输入密码，我们这使用默认的一路回车就行。成功的话会在`~/`下生成`.ssh`文件夹，进去，打开`id_rsa.pub`，复制里面的`key`。
+后面的邮箱改为你在github上注册的邮箱，之后会要求确认路径和输入密码，我们这使用默认的一路回车就行。成功的话会在`~/`下生成`.ssh`文件夹（Windows中的`~/`路径往往是`/C/user/user_name`），进去打开`id_rsa.pub`，复制里面的内容，即`key`。
 
 ## 6.2 配置GitHub/GitLab
 
@@ -442,7 +451,6 @@ ssh -T git@github.com
 
 如果是第一次的会提示是否continue，输入yes就会看到：You've successfully authenticated, but GitHub does not provide shell access 。这就表示已成功连上GitHub。
 
-<aside>
 🌟 如何将本地仓库提交到远程仓库
 
 - 若本地的repo是从GitHub直接clone下来的，则修改完本地repo后直接使用`git push`即可将更改提交到远程GitHub仓库。
@@ -490,7 +498,13 @@ git push <remote_repo_name> <branch_name>
 
 ![gitlab-3](figures/GitLab-3.png)
 
-## 6.2.3 回退之前的版本
+## 6.3 版本回退
+
+### 6.3.1 Reference
+
+🌟 [6.3节](#63-版本回退) 参考CSDN文章：[Git恢复之前版本的两种方法reset、revert（图文详解）](https://blog.csdn.net/yxlshk/article/details/79944535)
+
+### 6.3.2 具体实践
 
 - 先通过`git log`查看之前的版本，找到需要回退的目标版本号
 
@@ -505,5 +519,80 @@ git push -f
 
 此时如果用`git push`会报错，因为我们本地库版本比远程库的要旧，所以我们要用`git push -f`强制推送上去。
 
-- [6.2.3节](#623-回退之前的版本) 参考CSDN文章：[Git恢复之前版本的两种方法reset、revert（图文详解）](https://blog.csdn.net/yxlshk/article/details/79944535)
+## 6.4 Pull Request(PR)
 
+### 6.4.1 Reference
+
+🌟 [6.2.4节](#624-pull-requestpr) 参考博客：[如何在 GitHub 提交第一个 pull request](https://www.freecodecamp.org/chinese/news/how-to-make-your-first-pull-request-on-github/)
+
+### 6.4.2 基本概念
+
+**1. 什么是复刻（Fork）？**
+
+- 我们可以通过复刻操作将喜爱的仓库保存自己的GitHub账户中，以便独立地对其进行操作。
+
+- 通过复刻，我们可以得到包含完整版本历史的目标仓库的实例，之后可以对复刻得到的仓库进行任意操作而不会影响到原始仓库。
+
+**2. 什么是拉取请求（Pull Request, PR）？**
+
+- 将自己对复刻（fork）项目的修改，合并到原始项目中，不过是否接受修改取决于拥有原始项目的用户。
+
+- 拉取请求是为团队项目或开源项目做贡献的一种方式。
+
+### 6.4.3 具体实践
+
+- **复刻仓库：**点击页面顶部的“fork”按钮即可复刻仓库，这将在你的账户中创建此仓库的完整实例。
+
+![复刻仓库](./figures/fork.png)
+
+- **克隆仓库：**账户中已经包含了这个仓库，将它克隆到本地来进行编辑。
+
+```bash
+# 把仓库克隆到本地
+git clone [HTTP ADDRESS]
+# 进入项目目录
+cd [NAME OF REPO]
+```
+
+- **进行更改并提交：**对项目进行必要的更改并保存。
+
+```bash
+git status                          # 查看变更
+git add .                           # 将变更加入缓存区
+git commit -m "some message"        # 提交变更
+```
+
+- **推送到GitHub：**
+
+```bash
+git remote                          # 确认远程库的名称
+git push origin [Branch Name]       # 变更推送到GitHub
+```
+
+- **创建拉取请求：**在GitHub仓库中可以看到一个“Compare & pull request”按钮，点击它。请提供必要的说明来介绍你所做的变更（可以使用“#”来引用议题）。提交拉取请求。
+
+![pr1](./figures/pr1.png)
+![pr2](./figures/pr2.png)
+
+### 6.4.4 同步复刻的main分支
+
+在向原始仓库提交拉取请求之前，必须先将原始仓库的最新内容同步到本地仓库。
+
+即使没打算提交拉取请求也应该及时同步，因为自你复刻仓库之后，原始仓库中的项目可能添加了一些新的功能特性或者修复了一些bug。
+
+```bash
+git branch                          # 查看当前所在分支
+git checkout main                   # 切换到main分支
+git remote add upstream [HTTPS]     # 将原始仓库添加为upstream仓库
+git fetch upstream                  # 获取原始仓库的变更
+git merge upstream/main             # 合并变更.
+git push origin main                # 把变更推送到GitHub
+git branch -d [Branch Name]         # 删除无用的分支
+
+# 删除GitHub上的无用分支
+git push origin --delete [Branch Name]
+```
+
+# 7. `.gitigore`
+
+🌟 [第7章](#7-gitigore)参考博客：[详解gitignore的使用方法，让你尽情使用git add](https://www.cnblogs.com/techflow/p/13801136.html)
