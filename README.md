@@ -179,6 +179,13 @@ git add [file1] [file2] ...
 git add .
 ```
 
+- 如何撤销`add`指令
+
+```bash
+git reset               # 取消之前所有add操作
+git reset <file>        # 撤销某个特定文件的add
+```
+
 ## 3.3 git commit
 
 - **用途：git commit** 命令将暂存区内容添加到本地仓库（local repo）中。
@@ -194,6 +201,25 @@ git commit [file1] [file2] ... -m [message]
 # -a 参数设置修改文件后不需要执行 git add 命令，直接来提交
 git commit -a -m [message]
 ```
+
+- 如何撤销`commit`指令
+
+```bash
+# <commit> 是你要撤销的 commit 的哈希值或引用
+git revert <commit>
+git reset <commit>
+
+# 撤销最新的commit但保留修改
+git reset --soft HEAD~1
+# 撤销最新的commit并且丢弃所有修改
+git reset --hard HEAD~1
+```
+
+`HEAD~1` 是一个相对引用，用于表示当前提交的父提交。在 Git 中，每个提交都有一个唯一的哈希值，而 `HEAD` 则指向当前所在的提交。
+
+`HEAD~1` 表示当前提交的父提交，也就是上一个提交。类似地，`HEAD~2` 表示当前提交的父提交的父提交，以此类推。这种相对引用的形式可以帮助我们在提交历史中进行导航和引用。
+
+另外，你也可以使用绝对引用来表示提交的哈希值，例如使用完整的哈希值或者使用短哈希值（前几个字符）来引用特定的提交。
 
 ## 3.4 git push
 
