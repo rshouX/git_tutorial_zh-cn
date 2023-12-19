@@ -27,7 +27,7 @@
     - [3.7.2 git diff](#372-git-diff)
     - [3.7.3 git rm](#373-git-rm)
     - [3.7.4 git mv](#374-git-mv)
-    - [3.7.5 恢复到刚clone 的状态](#375-恢复到刚clone-的状态)
+    - [3.7.5 恢复到最新一次commit的状态](#375-恢复到最新一次commit的状态)
 - [4. Git 分支管理（optional）](#4-git-分支管理optional)
   - [4.1 Simple workflow](#41-simple-workflow)
   - [4.2 分支管理](#42-分支管理)
@@ -329,7 +329,7 @@ git rm --cached <file>
 
 - 移动或重命名工作区文件。
 
-### 3.7.5 恢复到刚clone 的状态
+### 3.7.5 恢复到最新一次commit的状态
 
 ```bash
 git reset --hard HEAD
